@@ -1,0 +1,18 @@
+/* Desktop CSS */
+.img-cat {
+    width: 90px;
+}
+.kartu {
+    height: 200px;
+}
+
+
+/* Mobile CSS */
+@media (max-width: 767.98px) { 
+    .img-cat {
+        width: 100px;
+    }
+    .kartu {
+        height: 200px;
+    }
+}

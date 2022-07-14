@@ -1,0 +1,8 @@
+@media (max-width: 767.98px) { 
+    .nav-big {
+        display: none;
+    }
+    Footer {
+        padding-bottom: 80px;
+    }
+}
