@@ -33,8 +33,8 @@ function Yesnavbar() {
                         </Link>
                     </li>
                     <li className="nav-item p-3">
-                        <Link to="/produk" className="nav-link" id="home">
-                            Produk
+                        <Link to="/category" className="nav-link" id="category">
+                            Kategori
                         </Link>
                     </li>
                     <li className="nav-item p-3">
@@ -49,7 +49,7 @@ function Yesnavbar() {
         <Nav className="navbar navbar-light bg-navbar-theme navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none">
             <ul className="navbar-nav nav-justified w-100">
                 <li className="nav-item">
-                    <Link to="/" className="nav-link" id="home">
+                    <Link to="/dashboard" className="nav-link" id="dashboard">
                         <Icon path={mdiHome} size={1} />
                         <br/>
                         Home
@@ -57,10 +57,10 @@ function Yesnavbar() {
                 </li>
                 
                 <li className="nav-item">
-                    <Link to="/product" className="nav-link" id="product">
+                    <Link to="/product" className="nav-link" id="category">
                         <Icon path={mdiSprout} size={1} />
                         <br/>
-                        Product
+                        Category
                     </Link>
                 </li>
 

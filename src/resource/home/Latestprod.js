@@ -5,11 +5,16 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import Image from 'react-bootstrap/Image';
 import Empty from '../../assets/img/empty.png';
+import { FormatRupiah } from "@arismun/format-rupiah";
+import Icon from '@mdi/react';
+import { mdiMapMarkerRadius } from '@mdi/js';
+import { mdiEyeSettingsOutline } from '@mdi/js';
 
 function Latestprod() {
 
     const apiUrl = useSelector(state => state.ApiReducer);
     const apiHeader = useSelector(state => state.HeaderReducer);
+    const WaMe = useSelector(state => state.WaReducer);
 
     const [product, setProduct] = useState('');
 
@@ -62,11 +67,28 @@ function Latestprod() {
         const prodlist = product.map((prod) =>
             <div className='col-md-3 p-3' key={prod.id}>
                 <Card>
-                    <Card.Img variant="top" alt='img-produk' src="https://images.pexels.com/photos/1893555/pexels-photo-1893555.jpeg" style={{ height: 200, objectFit: 'cover' }} />
+                    <Card.Img variant="top" alt='img-produk' src={prod.picture} style={{ height: 200, objectFit: 'cover' }} />
                     <Card.Body>
-                        <center>
-                        <h6>{prod.name}</h6>
-                        </center>
+                        <div style={{ height: 65 }}>
+                            <p>{prod.name.slice(0, 50) + (prod.name.length > 50 ? "..." : "")}</p>
+                        </div>
+                        <h5><FormatRupiah value={prod.price}/></h5>
+                        <div className='row'>
+                            <div className='col-1'>
+                                <Icon path={mdiMapMarkerRadius} size={0.8} />
+                            </div>
+                            <div className='col-10 pt-2'>
+                                <p style={{ fontSize: 10 }}>{prod.business_location}</p>
+                            </div>
+                        </div>
+                        <div className='row' style={{ marginTop: -10 }}>
+                            <div className='col-1'>
+                                <Icon path={mdiEyeSettingsOutline} size={0.7} />
+                            </div>
+                            <div className='col-10 pt-1'>
+                                <p style={{ fontSize: 10 }}>Dilihat : 28 Kali</p>
+                            </div>
+                        </div>
                         <div className='row'>
                             <div className='col-md-6'>
                                 <div className="d-grid gap-2 mb-3">
@@ -75,7 +97,7 @@ function Latestprod() {
                             </div>
                             <div className='col-md-6'>
                                 <div className="d-grid gap-2 mb-3">
-                                    <Button href={'/product/'+prod.id}>Beli</Button>
+                                    <Button href={WaMe.link+prod.business_contact} target="_blank">Beli</Button>
                                 </div>
                             </div>
                         </div>

@@ -15,6 +15,7 @@ import './assets/css/navbar.css';
 
 // Pages Import
 import Home from './resource/home/Home';
+import Category from './resource/category/Category';
 // Auth Page
 import Login from './resource/auth/Signin';
 import Signup from './resource/auth/Signup';
@@ -43,6 +44,8 @@ export default function App() {
           <Routes>
 
             <Route path="/" element={<Home/>} />
+
+            <Route path="/category" element={<Category/>} />
 
             <Route path="/masuk" element={<Login/>} />
             <Route path="/daftar" element={<Signup/>} />

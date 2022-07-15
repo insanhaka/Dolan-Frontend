@@ -25,7 +25,7 @@ function Home() {
                 <p style={{ fontSize: 50 }}>" Dolan "</p>
                 <h2 style={{ marginTop: -15 }}>Dodolan Online</h2>
                 <p>Platform UKM Virtual Expo yang diselenggarakan oleh Pemerintah Kabupaten Tegal, untuk mengenalkan produk-produk pelaku usaha lokal.</p>
-                <Button href="/daftar" style={{ width : '70%' }}>Cari Produk</Button>
+                <Button href="/category" style={{ width : '70%' }}>Cari Produk</Button>
             </div>
             
           </div>

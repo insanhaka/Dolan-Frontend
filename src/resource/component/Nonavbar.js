@@ -33,12 +33,12 @@ function Navbar() {
                         </Link>
                     </li>
                     <li className="nav-item p-3">
-                        <Link to="/produk" className="nav-link" id="home">
-                            Produk
+                        <Link to="/category" className="nav-link" id="category">
+                            Kategori
                         </Link>
                     </li>
                     <li className="nav-item p-3">
-                        <Link to="/produk" className="nav-link" id="home">
+                        <Link to="/about" className="nav-link" id="about">
                             Tentang Kami
                         </Link>
                     </li>
@@ -63,10 +63,10 @@ function Navbar() {
                 </li>
                 
                 <li className="nav-item">
-                    <Link to="/product" className="nav-link" id="product">
+                    <Link to="/product" className="nav-link" id="category">
                         <Icon path={mdiBasket} size={1} />
                         <br/>
-                        Product
+                        Category
                     </Link>
                 </li>
 
