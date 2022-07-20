@@ -3,8 +3,9 @@ import Image from 'react-bootstrap/Image';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Pp from '../../assets/img/no-img.png';
 import Icon from '@mdi/react';
-import { mdiAccountCog } from '@mdi/js';
-import { mdiInformation } from '@mdi/js';
+import { mdiAccountBoxOutline } from '@mdi/js';
+import { mdiStorefrontOutline } from '@mdi/js';
+import { mdiBasketOutline } from '@mdi/js';
 import { mdiLogout } from '@mdi/js';
 import Button from 'react-bootstrap/Button';
 import { 
@@ -12,17 +13,36 @@ import {
     useNavigate 
 } from "react-router-dom";
 
-import Navbar from '../component/Yesnavbar';
+import Navbar from '../component/Navbar';
 import Footer from '../component/Footer';
 
 function Profile() {
 
     let navigate = useNavigate();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [userID, setUserID] = useState('');
     
     const logout = () => {
         localStorage.removeItem('passport');
         navigate("/", { replace: true });
     }
+
+    useEffect(() => {
+        const topNavActive = document.getElementById('account').classList.add('top-active');
+
+        const token = localStorage.getItem('passport');
+        if (token !== null) {
+            const pisah = token.split('#');
+            const nama = pisah[0];
+            setName(nama);
+            const mail = pisah[1];
+            setEmail(mail);
+            const idUser = pisah[2];
+            setUserID(idUser);
+        }
+
+    }, []);
 
   return (
     <div className="App">
@@ -33,20 +53,26 @@ function Profile() {
                     <Image src={Pp} className="img-fluid mb-5" alt="User Image"/>
                 </div>
                 <div className='col-sm-10 pt-2'>
-                    <h1>Insan Hadi Karunia</h1>
-                    <p>insanhadikarunia@gmail.com</p>
+                    <h1>{name}</h1>
+                    <p>{email}</p>
                     <br/>
                     <ListGroup variant="flush">
                         <ListGroup.Item>
-                            <Link to='/edit/{id}/profile' style={{ color: '#303952' }}>
-                                <Icon path={mdiAccountCog} size={1} style={{ marginRight: 10 }} />
-                                Pengaturan Akun
+                            <Link to={`/edit/profile/${userID}`} style={{ color: '#303952' }}>
+                                <Icon path={mdiAccountBoxOutline} size={1} style={{ marginRight: 10 }} />
+                                Ubah Profil
                             </Link>
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <Link to='/about' style={{ color: '#303952' }}>
-                                <Icon path={mdiInformation} size={1} style={{ marginRight: 10 }} />
-                                Tentang Kami
+                            <Link to='/user/store' style={{ color: '#303952' }}>
+                                <Icon path={mdiStorefrontOutline} size={1} style={{ marginRight: 10 }} />
+                                Toko Saya
+                            </Link>
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <Link to='/user/product' style={{ color: '#303952' }}>
+                                <Icon path={mdiBasketOutline} size={1} style={{ marginRight: 10 }} />
+                                Produk Saya
                             </Link>
                         </ListGroup.Item>
                         <ListGroup.Item>

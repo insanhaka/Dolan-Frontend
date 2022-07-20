@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import Icon from '@mdi/react';
 import { mdiHome } from '@mdi/js';
 import { mdiSprout } from '@mdi/js';
-import { mdiInformation } from '@mdi/js';
 import { mdiAccountBox } from '@mdi/js';
 
 function Yesnavbar() {
@@ -28,17 +27,17 @@ function Yesnavbar() {
 
                 <ul className="navbar-nav flex-row align-items-center ms-auto">
                     <li className="nav-item p-3">
-                        <Link to="/dashboard" className="nav-link" id="dashboard">
+                        <Link to="/user/dashboard" className="nav-link" id="dashboard">
                             Home
                         </Link>
                     </li>
                     <li className="nav-item p-3">
-                        <Link to="/category" className="nav-link" id="category">
+                        <Link to="/user/category" className="nav-link" id="category">
                             Kategori
                         </Link>
                     </li>
                     <li className="nav-item p-3">
-                        <Link to="/akun" className="nav-link" id="akun">
+                        <Link to="/user/akun" className="nav-link" id="akun">
                             Akun
                         </Link>
                     </li>
@@ -49,7 +48,7 @@ function Yesnavbar() {
         <Nav className="navbar navbar-light bg-navbar-theme navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none">
             <ul className="navbar-nav nav-justified w-100">
                 <li className="nav-item">
-                    <Link to="/dashboard" className="nav-link" id="dashboard">
+                    <Link to="/user/dashboard" className="nav-link" id="dashboard">
                         <Icon path={mdiHome} size={1} />
                         <br/>
                         Home
@@ -57,7 +56,7 @@ function Yesnavbar() {
                 </li>
                 
                 <li className="nav-item">
-                    <Link to="/product" className="nav-link" id="category">
+                    <Link to="/user/category" className="nav-link" id="category">
                         <Icon path={mdiSprout} size={1} />
                         <br/>
                         Category
@@ -65,7 +64,7 @@ function Yesnavbar() {
                 </li>
 
                 <li className="nav-item">
-                    <Link to="/masuk" className="nav-link" id="login">
+                    <Link to="/user/akun" className="nav-link" id="login">
                         <Icon path={mdiAccountBox} size={1} />
                         <br/>
                         Account

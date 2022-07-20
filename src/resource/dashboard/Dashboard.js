@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'react-bootstrap/Image';
+import { useParams } from "react-router-dom";
 
-import Navbar from '../component/Yesnavbar';
+import Navbar from '../component/Navbar';
 import Footer from '../component/Footer';
 
 function Dashboard() {
 
+  let params = useParams();
+
   return (
+    <React.Fragment>
+    <Navbar/>
     <div className="App">
-      <Navbar/>
-        <div className='container' style={{paddingTop : '5%'}}>
+        <div className='container'>
           <div className='row'>
+
+            <div className='col-md-6' style={{paddingTop : '3%'}}>
+                
+            </div>
             
-            <div className='col-md-12' style={{paddingTop : '5%'}}>
-              <h1>Dashboard Page</h1>
+            <div className='col-md-6' style={{padding : '5%', paddingTop: '8%'}}>
+                <h2 style={{ marginTop: -15 }}>User ID = {params.id}</h2>
             </div>
             
           </div>
         </div>
-      <Footer/>
     </div>
+    <Footer/>
+    </React.Fragment>
   );
   
 }

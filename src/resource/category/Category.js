@@ -7,9 +7,8 @@ import Cat from '../../assets/img/categories.png';
 import '../../assets/css/homecategory.css';
 import { Link } from "react-router-dom";
 import Empty from '../../assets/img/empty.png';
-import Swal from 'sweetalert2';
 
-import Navbar from '../component/Nonavbar';
+import Navbar from '../component/Navbar';
 import Footer from '../component/Footer';
 
 function Category() {
@@ -20,6 +19,8 @@ function Category() {
   const [category, setCategory] = useState('');
 
   useEffect(() => {
+
+    const topNavActive = document.getElementById('category').classList.add('top-active');
 
     axios.get(apiUrl.url+'home-page',
     {
@@ -42,20 +43,45 @@ function Category() {
 
     if (category.length == 0) {
       return (
-        <div className='col-sm-12 p-3'>
-          <Card>
-            <Card.Body>
-                <div className='row justify-content-center'>
-                    <div className='col-sm-1'>
-                        <Image src={Empty} alt="Login Image" className="img-fluid" />
-                    </div>
-                    <div className='col-sm-5 pt-3'>
-                        <h5>Data Kategori Tidak Ditemukkan</h5>
-                    </div>
+        <React.Fragment>
+        <Navbar/>
+        <div className="App">
+            <div className='container'>
+              <div className='row pt-5'>
+                <div className='col-1'>
+                    <Image src={Cat} alt="Brand-Image" style={{ width: 90 }} className="img-fluid" />
                 </div>
-            </Card.Body>
-          </Card>
+                <div className='col-10' style={{paddingTop : '2%'}}>
+                    <h3>Kategori Produk</h3>
+                </div> 
+                <hr  style={{
+                    color: '#778beb',
+                    backgroundColor: '#778beb',
+                    height: .5,
+                    borderColor : '#778beb',
+                    marginTop: 30,
+                }}/>
+              </div>
+    
+              <div className='col-sm-12 p-3'>
+                <Card>
+                  <Card.Body>
+                      <div className='row justify-content-center'>
+                          <div className='col-sm-1'>
+                              <Image src={Empty} alt="Login Image" className="img-fluid" />
+                          </div>
+                          <div className='col-sm-5 pt-3'>
+                              <h5>Data Kategori Tidak Ditemukkan</h5>
+                          </div>
+                      </div>
+                  </Card.Body>
+                </Card>
+              </div>
+              
+            </div>
         </div>
+        <Footer/>
+        </React.Fragment>
       );
     }else {
       const catlist = category.map((cat) =>
